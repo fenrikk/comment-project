@@ -15,6 +15,19 @@
           </config>
         </ContributedStateBase>
       </target>
+      <target name="nikita@192.168.0.102:22" type="ssh/sftp" uuid="d314f2f4-b43d-4f82-8c81-a3e5fe25e5c1">
+        <config>
+          <option name="projectRootOnTarget" value="/home/nikita/CommentProject" />
+          <option name="serverName" value="nikita@192.168.0.102:22 password" />
+          <option name="useRsync" value="true" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="homePath" value="/lib/jvm/java-1.8.0-openjdk-arm64" />
+            <option name="javaVersionString" value="1.8.0_402" />
+          </config>
+        </ContributedStateBase>
+      </target>
     </targets>
   </component>
 </project>

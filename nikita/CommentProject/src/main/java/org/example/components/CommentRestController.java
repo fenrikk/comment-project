@@ -1,6 +1,5 @@
-package org.example.components.controllers;
+package org.example.components;
 
-import org.example.components.model.CommentsSingleton;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,13 +48,13 @@ public class CommentRestController {
     )
     public CommentsResponse getComments() {
         CommentsResponse result = new CommentsResponse();
-        result.setComments(CommentsSingleton.getInstance().getComments());
+        result.setComments(Comments.getInstance().getComments());
         return result;
     }
 
     @RequestMapping(value = "/addComment", method = RequestMethod.POST)
     public Comment addComment(@RequestBody Comment comment) {
-        CommentsSingleton.getInstance().addComment(comment);
+        Comments.getInstance().addComment(comment);
         return comment;
     }
 }
