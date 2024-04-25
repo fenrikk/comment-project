@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="nikita@10.211.55.21:22" type="ssh/sftp" uuid="a9bb6872-de69-41ee-a6ea-4c68eae00d86">
+        <config>
+          <option name="projectRootOnTarget" value="/home/nikita/CommentProject" />
+          <option name="serverName" value="nikita@10.211.55.21:22 password" />
+          <option name="useRsync" value="true" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="homePath" value="/usr/lib/jvm/java-1.8.0-openjdk-arm64" />
+            <option name="javaVersionString" value="1.8.0" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>
