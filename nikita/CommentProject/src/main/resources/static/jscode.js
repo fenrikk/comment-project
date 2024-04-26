@@ -6,6 +6,12 @@ addCommentBtn.addEventListener('click', function () {
     onAddCommentClicked()
 });
 
+commentInput.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        onAddCommentClicked()
+    }
+})
+
 fetch('/getComments')
     .then(response => response.json())
     .then(response => {
@@ -14,7 +20,6 @@ fetch('/getComments')
                 addComment(item.comment)
             }
         )
-        console.log(response)
     })
     .catch(error => {
         console.error('Помилка:', error);
@@ -47,9 +52,3 @@ function onAddCommentClicked() {
 
     }
 }
-
-commentInput.addEventListener('keypress', function (event) {
-    if (event.key === 'Enter') {
-        onAddCommentClicked()
-    }
-})
