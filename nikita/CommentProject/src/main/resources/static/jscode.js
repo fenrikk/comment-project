@@ -29,7 +29,7 @@ function addComment(text) {
     const commentElement = document.createElement('div');
     commentElement.classList.add('comment');
     commentElement.textContent = text;
-    commentsContainer.prepend(commentElement);
+    commentsContainer.appendChild(commentElement);
 }
 
 function onAddCommentClicked() {
