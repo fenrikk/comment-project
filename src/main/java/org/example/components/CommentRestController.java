@@ -12,6 +12,12 @@ import java.util.List;
 @RestController
 public class CommentRestController {
 
+    Comments comments;
+
+    public CommentRestController(Comments comments) {
+        this.comments = comments;
+    }
+
     public static class CommentsResponse {
         private List<Comment> comments;
 
@@ -48,13 +54,13 @@ public class CommentRestController {
     )
     public CommentsResponse getComments() {
         CommentsResponse result = new CommentsResponse();
-        result.setComments(Comments.getInstance().getComments());
+        result.setComments(comments.getComments());
         return result;
     }
 
     @RequestMapping(value = "/addComment", method = RequestMethod.POST)
     public Comment addComment(@RequestBody Comment comment) {
-        Comments.getInstance().addComment(comment);
+        comments.addComment(comment);
         return comment;
     }
 }

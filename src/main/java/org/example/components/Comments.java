@@ -1,21 +1,15 @@
 package org.example.components;
 
+import org.springframework.stereotype.Component;
+
 import java.util.LinkedList;
 import java.util.List;
 
+@Component
 public class Comments {
-    private static Comments instance;
     private final List<CommentRestController.Comment> comments = new LinkedList<>();
 
-    private Comments() {
-    }
-
-    public static synchronized Comments getInstance() {
-        if (instance == null) {
-            instance = new Comments();
-        }
-        return instance;
-    }
+    private Comments() {}
 
     public void addComment(CommentRestController.Comment comment) {
         comments.add(comment);
