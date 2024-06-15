@@ -3,68 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мій сайт з коментарями</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f0f0f0;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            width: 70%;
-            margin-bottom: 10px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        #comments {
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .comment {
-            padding: 10px;
-            margin-bottom: 5px;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-        }
-    </style>
+    <title>Comment website</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <div class="container">
-    <h1>Залиште свій коментар</h1>
-    <input type="text" id="commentInput" placeholder="Введіть ваш коментар">
-    <button id="addCommentBtn">Додати коментар</button>
+    <h1>Publish your comment</h1>
+    <div id="alert" style="display: none; color: red; margin-bottom: 10px;">Your comment should be less than 5000
+        symbols.
+    </div>
+    <input type="text" id="commentInput" placeholder="Enter your comment">
+    <button id="addCommentBtn">Add comment</button>
     <div id="comments"></div>
 </div>
 <script src="jscode.js"></script>
