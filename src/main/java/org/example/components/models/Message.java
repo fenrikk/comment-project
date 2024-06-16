@@ -1,6 +1,11 @@
 package org.example.components.models;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Message {
+    @NotEmpty
+    @Size(max =  5000)
     private String messageString;
 
 
