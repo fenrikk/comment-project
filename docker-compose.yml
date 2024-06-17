@@ -1,5 +1,5 @@
 volumes:
-  pg_comment:
+  comment_volume:
 
 services:
   comment_db:
@@ -10,7 +10,7 @@ services:
       - POSTGRES_PASSWORD=1122
       - POSTGRES_DB=comment_db
     volumes:
-      - pg_comment:/var/lib/postgresql/data
+      - comment_volume:/var/lib/postgresql/data
     ports:
       - "127.0.0.1:5432:5432"
 
