@@ -1,16 +1,16 @@
 package org.example.components.service.base;
 
-import org.example.components.models.Comment;
-import org.example.components.models.Message;
+import org.example.components.models.dto.CommentDto;
+import org.example.components.models.dto.Message;
 
 import java.util.List;
 
 public interface CommentService {
-    Comment postComment(Message message);
+    CommentDto postComment(Message message);
 
-    List<Comment> getComment();
+    List<CommentDto> getComment();
 
-    Comment patchComment(int id, Message message);
+    CommentDto patchComment(int id, Message message);
 
     void deleteComment(int id);
 }

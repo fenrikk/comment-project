@@ -1,47 +1,54 @@
 package org.example.components.service;
 
 import org.example.components.models.Comment;
-import org.example.components.models.Message;
-import org.example.components.repository.DatabaseCommentRepository;
-import org.example.components.repository.base.CommentRepository;
+import org.example.components.models.dto.CommentDto;
+import org.example.components.models.dto.Message;
+import org.example.components.models.dto.mapper.CommentDtoMapper;
+import org.example.components.repository.CommentRepository;
 import org.example.components.service.base.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 
-@Component
+@Service
 public class DefaultCommentService implements CommentService {
 
     private final CommentRepository commentRepository;
 
     @Autowired
-    public DefaultCommentService(DatabaseCommentRepository commentRepository) {
+    public DefaultCommentService(CommentRepository commentRepository) {
         this.commentRepository = commentRepository;
     }
 
     @Override
-    public Comment postComment(Message message) {
-        Comment commentToInsert = new Comment(message, System.currentTimeMillis(), false);
-        return commentRepository.insertComment(commentToInsert);
+    public CommentDto postComment(Message message) {
+        Comment newComment = new Comment();
+        newComment.setMessage(message.getMessageString());
+        newComment.setPostTime(System.currentTimeMillis());
+        commentRepository.save(newComment);
+        return CommentDtoMapper.mapToDto(newComment);
     }
 
     @Override
-    public List<Comment> getComment() {
-        return commentRepository.getComments();
+    public List<CommentDto> getComment() {
+        List<CommentDto> commentDtoList = new LinkedList<>();
+        commentRepository.findAll().forEach(comment ->
+                commentDtoList.add(CommentDtoMapper.mapToDto(comment))
+        );
+        return commentDtoList;
     }
 
     @Override
-    public Comment patchComment(int id, Message message) {
-        Comment commentToPatch = new Comment(message, System.currentTimeMillis(), true);
-        commentToPatch.setId(id);
-        return commentRepository.updateComment(commentToPatch);
+    public CommentDto patchComment(int id, Message message) {
+        Comment commentToUpdate = new Comment(message.getMessageString(), System.currentTimeMillis(), true);
+        commentToUpdate.setId(id);
+        return CommentDtoMapper.mapToDto(commentRepository.save(commentToUpdate));
     }
 
     @Override
     public void deleteComment(int id) {
-        Comment commentToDelete = new Comment();
-        commentToDelete.setId(id);
-        commentRepository.removeComment(commentToDelete);
+        commentRepository.deleteById(id);
     }
 }

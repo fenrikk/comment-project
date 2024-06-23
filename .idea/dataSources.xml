@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="comment_db@localhost" uuid="87c1e821-968e-437a-8fd4-c6c2183202d9">
+    <data-source source="LOCAL" name="comment_database@localhost" uuid="ec51ac64-e41f-4c7f-9849-0d8b71a0a1c4">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/comment_db</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/comment_database</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

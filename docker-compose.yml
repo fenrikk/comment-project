@@ -1,16 +1,16 @@
 volumes:
-  comment_volume:
+  postgres_volume:
 
 services:
-  comment_db:
+  postgres_release_comment_database:
     image: postgres
     restart: always
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1122
-      - POSTGRES_DB=comment_db
+      - POSTGRES_DB=comment_database
     volumes:
-      - comment_volume:/var/lib/postgresql/data
+      - postgres_volume:/var/lib/postgresql/data
     ports:
       - "127.0.0.1:5432:5432"
 
@@ -20,7 +20,7 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - comment_db
+      - postgres_release_comment_database
     environment:
-      SPRING_DATASOURCE_URL: "jdbc:postgresql://comment_db:5432/comment_db"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres_release_comment_database:5432/comment_database"
       JAVA_OPTS: '-Xmx512m'
