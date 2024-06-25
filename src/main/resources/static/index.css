@@ -19,7 +19,14 @@ body {
     text-align: center;
 }
 
-input[type="text"] {
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"] {
     padding: 10px;
     width: 70%;
     margin-bottom: 10px;
@@ -51,8 +58,7 @@ button:hover {
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
 }
 
 .comment-text {
@@ -60,17 +66,16 @@ button:hover {
     margin-right: 10px;
 }
 
-.comment-time {
+.comment-time, .comment-author {
     font-size: 0.8em;
     color: #888;
     margin-right: 10px;
-    white-space: nowrap;
 }
 
 .comment-actions {
     display: flex;
     gap: 10px;
-    margin-left: auto;
+    margin-top: 10px;
 }
 
 .comment-actions button {

@@ -1,4 +1,4 @@
-package org.example.components.models.dto;
+package org.example.components.models.dto.comment;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,4 +10,5 @@ public class CommentDto {
     private Message message;
     private Long postTime;
     private boolean edited;
+    private String author;
 }

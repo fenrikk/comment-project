@@ -1,4 +1,4 @@
-package org.example.components.models;
+package org.example.components.models.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,8 +18,14 @@ public class Comment {
 
     @Column(length = 5000)
     private String message;
+
     private Long postTime;
+
     private boolean edited;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User author;
 
     public Comment(String message, Long postTime, boolean edited) {
         this.message = message;

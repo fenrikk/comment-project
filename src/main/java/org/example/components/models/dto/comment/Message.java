@@ -1,4 +1,4 @@
-package org.example.components.models.dto;
+package org.example.components.models.dto.comment;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

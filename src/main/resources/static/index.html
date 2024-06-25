@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comment website</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="index.css"/>
 </head>
 <body>
 <div class="container">
-    <h1>Publish your comment</h1>
+    <div id="header">
+        <h1>Publish your comment</h1>
+        <button id="logoutBtn">Logout</button>
+    </div>
     <div id="alert" style="display: none; color: red; margin-bottom: 10px;">Your comment should be less than 5000
         symbols.
     </div>
@@ -16,6 +19,6 @@
     <button id="addCommentBtn">Add comment</button>
     <div id="comments"></div>
 </div>
-<script src="jscode.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
